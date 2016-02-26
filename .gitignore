@@ -1,0 +1,7 @@
+.gradle
+build/
+springMvc.iml
+springMvc.ipr
+springMvc.iws
+gradle/
+
