@@ -32,7 +32,7 @@ apply plugin: 'idea'
 apply plugin: 'jetty'
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.7'
+    compile 'org.slf4j:slf4j-api:1.7.7', 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
 
     testCompile "junit:junit:4.11",'org.mockito:mockito-all:1.10.19'
 
