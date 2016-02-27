@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="bg-dark js no-touch no-android no-chrome firefox no-iemobile no-ie no-ie10 no-ie11 no-ios">
+<head>
+    <meta charset="utf-8" />
+    <title>电子围栏系统管理平台</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" href="static/scripts/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/animate.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/apps.css" type="text/css"/>
+    <link rel="stylesheet" href="static/admin/css/sign.css" type="text/css"/>
+
+    <script src="static/scripts/jquery/1.11.0/jquery.min.js"></script>
+    <script src="static/scripts/jquery-form/3.03/jquery.form.js"></script>
+    <script src="static/admin/js/sign.js"></script>
+</head>
+<body>
+
+<div id="aui_iwrapper" class="aui-iwrapper">
+    <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+        <div class="container aside-xxl">
+            <a class="navbar-brand block" href="#">电子围栏系统 管理平台</a>
+            <section class="panel panel-default bg-white m-t-lg">
+                <header class="panel-heading text-center">
+                    <strong>登录</strong>
+                </header>
+                <form action="login.do" id="form_sign"  class="panel-body wrapper-lg" method="post" title="登录" data-validate="parsley">
+                    <div class="form-group">
+                        <label class="control-label">用户名</label>
+                        <input type="text" name="username" class="form-control input-lg" id="username" placeholder="用户名" data-maxlength="20" data-minlength="3" data-required="true" data-trigger="change" value="" />
+                        <span class="notice notice-username"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">密码</label>
+                        <input type="password" name="password" class="form-control input-lg" id="inputPassword" placeholder="密码" data-required="true" data-trigger="change" />
+                        <span class="notice notice-password"></span>
+                    </div>
+
+                    <button type="submit" id="sign_submit" class="btn btn-primary">登录</button>
+                    <button type="reset" class="btn btn-info">重置</button>
+                    <input type="hidden" name="continue" value="/admin" />
+                    <div class="line line-dashed"></div>
+                    <h4 class="text text-danger notice-back"></h4>
+                </form>
+            </section>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer id="footer">
+        <div class="text-center padder">
+            <p>
+                <small>test<br>&copy; 2015</small>
+            </p>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
