@@ -45,19 +45,21 @@ $(document).ready(function () {
          */
 
         var options = {
-            data: {
+            data: JSON.stringify({
                 'id': "test",
                 'name': "test1"
-            },
+            }),
+            method: "POST",
             url:"login.do",
-            dataType: 'json',
             timeout: 60000,
             success: sign_submited,
-            error: ajaxError
+            error: ajaxError,
+            contentType:"application/json; charset=utf-8"
         };
 
-        $("#form_sign").ajaxSubmit(options);
+        $.ajax(options);
 
+        e.preventDefault();
         return false;
     });
 });
