@@ -1,6 +1,8 @@
 package com.controller;
 
 import com.bean.User;
+import com.service.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 
+    @Autowired
+    private LoginService login;
+
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @ResponseBody
     public String hello() {
@@ -23,6 +28,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public User login(@RequestBody final User user) {
+        login.login(user);
         return user;
     }
 

@@ -11,6 +11,15 @@
         based on the recommendations of the Application Developer's Guide.
     </description>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/application-context.xml,/WEB-INF/db-config.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
