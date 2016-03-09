@@ -22,6 +22,8 @@ public class LoginService {
 //            return false;
 //        }
 
+        User user1 = userMapper.getUser("1");
+        System.out.println(user1.getName());
         return true;
     }
 

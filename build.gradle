@@ -38,7 +38,8 @@ dependencies {
             'org.mybatis:mybatis-spring:1.2.4',
             'org.apache.commons:commons-dbcp2:2.0',
             'org.springframework:spring-dao:2.0.8',
-            'org.springframework:spring-jdbc:4.2.5.RELEASE'
+            'org.springframework:spring-jdbc:4.2.5.RELEASE',
+            'mysql:mysql-connector-java:5.1.38'
 
     testCompile "junit:junit:4.11",'org.mockito:mockito-all:1.10.19'
 
