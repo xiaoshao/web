@@ -21,7 +21,7 @@
     </listener>
 
     <servlet>
-        <servlet-name>HelloServlet</servlet-name>
+        <servlet-name>DispatchServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -30,8 +30,22 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
+        <servlet-name>DispatchServlet</servlet-name>
         <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>error-handler</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/error-servlet.xml</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>error-handler</servlet-name>
+        <url-pattern>/error/*</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>
@@ -40,4 +54,9 @@
         <welcome-file>index.htm</welcome-file>
         <welcome-file>springMvc/index.jsp</welcome-file>
     </welcome-file-list>
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error/handler</location>
+    </error-page>
 </web-app>

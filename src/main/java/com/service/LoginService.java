@@ -8,23 +8,12 @@ import javax.annotation.Resource;
 
 @Component
 public class LoginService {
-//
-//    @Autowired
-//    private UserDao userDao;
 
     @Resource(name = "userMapper")
     public UserMapper userMapper;
 
-    public boolean login(User user){
-
-        System.out.println("login service");
-//        if(userDao.getUserInfo() == null){
-//            return false;
-//        }
-
-        User user1 = userMapper.getUser("1");
-        System.out.println(user1.getName());
-        return true;
+    public User login(User user) {
+        return userMapper.getUser(user.getName(), user.getPassword());
     }
 
     public UserMapper getUserMapper() {

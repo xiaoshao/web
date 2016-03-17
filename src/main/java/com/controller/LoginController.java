@@ -27,10 +27,17 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public User login(@RequestBody final User user) {
+    public User login(@RequestBody final User user) throws Exception{
         login.login(user);
         return user;
     }
+
+    @RequestMapping(value = "/test", method= RequestMethod.GET)
+    @ResponseBody
+    public String test() throws Throwable{
+        throw new Exception("test");
+    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(LoginController.class, args);
