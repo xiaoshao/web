@@ -14,4 +14,8 @@
         <property name="prefix" value="views/" />
         <property name="suffix" value=".jsp" />
     </bean>
+
+    <mvc:interceptors>
+        <bean class="com.interceptor.CookieCheckInterceptor"/>
+    </mvc:interceptors>
 </beans>

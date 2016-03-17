@@ -46,8 +46,8 @@ $(document).ready(function () {
 
         var options = {
             data: JSON.stringify({
-                'id': "test",
-                'name': "test1"
+                'id': $("input[name=username]").val(),
+                'name': $("input[name=password]").val()
             }),
             method: "POST",
             url:"login.do",
@@ -99,5 +99,6 @@ function shake(obj_id, shake) {
  * ajaxError
  */
 function ajaxError(XMLHttpRequest, textStatus, errorThrown) {
-    alert('Ooops!Encountered error while connecting to the server.There might be something wrong with your network.Please check your network connection!');
+    $('.notice-password').html(JSON.parse(XMLHttpRequest.responseText).msg);
+    //alert('Ooops!Encountered error while connecting to the server.There might be something wrong with your network.Please check your network connection!');
 }

@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by zwshao on 2/26/16.
  */
@@ -27,7 +30,8 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public User login(@RequestBody final User user) throws Exception{
+    public User login(@RequestBody final User user, HttpServletResponse response) throws Exception{
+        response.addCookie(new Cookie("test", "1234567"));
         login.login(user);
         return user;
     }
