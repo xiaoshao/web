@@ -46,8 +46,8 @@ $(document).ready(function () {
 
         var options = {
             data: JSON.stringify({
-                'id': $("input[name=username]").val(),
-                'name': $("input[name=password]").val()
+                'name': $("input[name=username]").val(),
+                'password': $("input[name=password]").val()
             }),
             method: "POST",
             url:"login.do",

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="app">
+<head>
+    <script type="text/javascript" language="JavaScript">
+        var STORE_URL = 'http://113.140.5.230:40000';
+        var STATIC_URL = '/static';
+        var STATIC_CDN = '/static';
+    </script>
+    <!-- META-->
+    <meta charset="utf-8" />
+    <meta name="description" content="ilife" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- GLOBAL ASSETS -->
+    <link rel="stylesheet" href="static/scripts/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/animate.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/apps.css" type="text/css"/>
+    <link rel="stylesheet" href="static/scripts/fuelux/fuelux.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/reset.css" type="text/css"/>
+
+    <!--[if lt IE 9]>
+    <script src="static/scripts/ie/html5shiv.js" cache="false"></script>
+    <script src="static/scripts/ie/respond.min.js" cache="false"></script>
+    <script src="static/scripts/ie/excanvas.js" cache="false"></script>
+    <![endif]-->
+    <script src="static/scripts/jquery/1.11.0/jquery.min.js"></script>
+    <script src="static/scripts/jquery-form/3.03/jquery.form.js"></script>
+    <script src="static/scripts/jquery-pjax/jquery.pjax.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="static/scripts/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+    <!-- App -->
+    <script src="static/scripts/app.js"></script>
+    <script src="static/scripts/app.plugin.js"></script>
+    <script src="static/scripts/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="static/scripts/fuelux/fuelux.js" cache="false"></script>
+    <script src="static/panel/js/common.js"></script>
+
+    <!-- GLOBAL ASSETS END@-->
+    <link rel="stylesheet" href="static/scripts/jquery-ztree/3.5.15/css/zTreeStyle.css" type="text/css" />
+    <script src="static/scripts/jquery-ztree/3.5.15/js/jquery.ztree.core-3.5.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery-ztree/3.5.15/js/jquery.ztree.excheck-3.5.js"></script>
+    <link rel="stylesheet" href="static/admin/css/index.index.css" type="text/css" />
+
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=DF9ecd1115b0af58dc4d439cf8bc2a9a&services=true"></script>
+
+    <!-- USER DEFINED ASSETS -->
+    <!-- USER DEFINED ASSETS END@-->
+    <title>电子围栏管理系统</title>
+</head>
+<body>
+<!-- .vbox -->
+<section class="vbox">
+    <!-- .header -->
+    <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+        <div class="navbar-header aside-md">
+            <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="javascript:;" class="navbar-brand" data-toggle="fullscreen">
+                <!--  <img src="/static/panel/img/logo_ilife.png" class="m-r-sm">--> 电子围栏系统
+            </a>
+            <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
+                <i class="fa fa-cog"></i>
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav hidden-xs">
+            <li class="dropdown">
+                <!--   <a href="#" class="dropdown-toggle dker" data-toggle="dropdown">
+                    <i class="fa fa-building-o"></i>
+                       <span class="font-bold">面板</span>
+                   </a>-->
+                <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
+                    <div class="wrapper lter m-t-n-xs">
+                        <a href="#" class="thumb pull-left m-r">
+                            <img src="/static/panel/img/avatar.jpg" class="img-circle">
+                        </a>
+                        <div class="clear">
+                            <a href="javascript:;"><span class="text-white font-bold">@admin</span></a>
+                            <small class="block"></small>
+                        </div>
+                    </div>
+                </section>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right hidden-xs nav-user">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar pull-left">
+                    <img src="/static/panel/img/avatar.jpg">
+                </span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInRight">
+                    <li>
+                        <a href="/admin/sign/out">注销</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- /.header -->
+
+    <section>
+        <section class="hbox stretch">
+            <!-- .aside -->
+            <aside class="bg-dark lter aside-md hidden-print" id="nav">
+                <section class="vbox">
+                    <section class="w-f scrollable">
+                        <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
+
+                            <!-- nav -->
+                            <div class="tab-content">
+                                <div id="nav_content" class="tab-pane fade active in nav-content">
+                                    <nav class="nav-primary hidden-xs">
+                                        <ul class="nav" id="left_nav">
+                                            <li>
+                                                <a href="javascript:;" class="nav-two">
+                                                    <i class="fa icon fa-users">
+                                                        <b class="bg-danger"></b>
+                                                    </i>
+		                                <span class="pull-right">
+		                                    <i class="fa fa-angle-down text"></i>
+		                                    <i class="fa fa-angle-up text-active"></i>
+		                                </span>
+                                                    <span>业务管理</span>
+                                                </a>
+                                                <ul class="nav lt nav-three">
+                                                    <li>
+                                                        <a href="/blackadmin" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>黑名单</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/warnadmin/black" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>黑名单告警</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/businessadmin" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>基本数据检索</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/businessadmin/map" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>目标轨迹电子地图</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/businessadmin/resident" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>常住人口分析</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/businessadmin/statistics" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>数据分析</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/businessadmin/habit" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>目标活动习惯分析</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/businessadmin/partner" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>目标伴随分析</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" class="nav-two">
+                                                    <i class="fa icon fa-comment">
+                                                        <b class="bg-warning"></b>
+                                                    </i>
+		                                <span class="pull-right">
+		                                    <i class="fa fa-angle-down text"></i>
+		                                    <i class="fa fa-angle-up text-active"></i>
+		                                </span>
+                                                    <span>设备管理</span>
+                                                </a>
+                                                <ul class="nav lt nav-three">
+                                                    <li>
+                                                        <a href="/stationadmin/map" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>设备地图</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/stationadmin/update" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>设备升级</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/imeiadmin" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>上号显示</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/stationadmin/info" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>设备信息</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/stationadmin/set" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>设备参数</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/stationadmin/act" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>设备操作</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/stationadmin/timesyn" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>同步时间</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" class="nav-two">
+                                                    <i class="fa icon fa-file-text">
+                                                        <b class="bg-success"></b>
+                                                    </i>
+		                                <span class="pull-right">
+		                                    <i class="fa fa-angle-down text"></i>
+		                                    <i class="fa fa-angle-up text-active"></i>
+		                                </span>
+                                                    <span>告警管理</span>
+                                                </a>
+                                                <ul class="nav lt nav-three">
+                                                    <li>
+                                                        <a href="/warnadmin" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>告警信息</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/warnadmin/Dic" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>告警字典</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/warnadmin/history" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>历史告警</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" class="nav-two">
+                                                    <i class="fa icon fa-bullhorn">
+                                                        <b class="bg-info"></b>
+                                                    </i>
+		                                <span class="pull-right">
+		                                    <i class="fa fa-angle-down text"></i>
+		                                    <i class="fa fa-angle-up text-active"></i>
+		                                </span>
+                                                    <span>开局管理</span>
+                                                </a>
+                                                <ul class="nav lt nav-three">
+                                                    <li>
+                                                        <a href="/stationadmin" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>本地配置</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;" class="nav-two">
+                                                    <i class="fa icon fa-gavel">
+                                                        <b class="bg-danger"></b>
+                                                    </i>
+		                                <span class="pull-right">
+		                                    <i class="fa fa-angle-down text"></i>
+		                                    <i class="fa fa-angle-up text-active"></i>
+		                                </span>
+                                                    <span>短信设置</span>
+                                                </a>
+                                                <ul class="nav lt nav-three">
+                                                    <li>
+                                                        <a href="/smsadmin/template" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>模板信息</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/smsadmin/object" class="load-content">
+                                                            <i class="fa fa-angle-right"></i>
+                                                            <span>发送对象</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <!-- / nav -->
+                        </div>
+                    </section>
+
+                    <footer class="footer lt hidden-xs b-t b-dark">
+                        <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
+                            <i class="fa fa-angle-left text"></i>
+                            <i class="fa fa-angle-right text-active"></i>
+                        </a>
+                    </footer>
+                </section>
+            </aside>
+
+            <!-- 树 -->
+            <aside class="aside-md bg-white b-r" id="subNav">
+                <section class="vbox">
+                    <header class="b-b header"><p class="h4">设备信息</p></header>
+                    <section class="scrollable w-f scrollable-ztree">
+                        <p class="text-dark padder m-t-xs m-b-none th-sortable" id="category_all">全部</p>
+                        <ul id="treeDemo" class="nav ztree"></ul>
+                        <input type="hidden" id="category_id" value="0" />
+                        <input type="hidden" name="moreStnId" id="moreStnId" value="0" />
+                    </section>
+                </section>
+
+                <div id="dianji" style="background-color:White;border:1px solid #cccccc;  position: absolute; z-index: 10; display: none">
+                    <ul style=" padding: 0px 10px;">
+                        <li style="list-style-type: none; height: 20px; line-height: 20px;"><a id="device_edit" href="#">编辑修改设备</a></li>
+                        <li style="list-style-type: none; height: 20px; line-height: 20px;"><a id="device_delete" href="#">删除设备</a></li>
+                        <li style="list-style-type: none; height: 20px; line-height: 20px;"><a id="device_set" href="#">参数设置查询</a></li>
+                        <li style="list-style-type: none; height: 20px; line-height: 20px;"><a id="device_act" href="#">设备操作</a></li>
+                        <li style="list-style-type: none; height: 20px; line-height: 20px;"><a id="device_info" href="#">设备信息</a></li>
+                        <li style="list-style-type: none; height: 20px; line-height: 20px;"><a id="device_timesyn" href="#">同步时间</a></li>
+                        <li style="list-style-type: none; height: 20px; line-height: 20px;"><a id="warn_index" href="#">实时告警</a></li>
+                        <li style="list-style-type: none; height: 20px; line-height: 20px;"><a id="business_index" href="#">历史数据查询</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <ul class="list hidden">
+                <li>
+                    被勾选时：<input type="checkbox" id="py" class="checkbox first" checked /><span>关联父</span>
+                    <input type="checkbox" id="sy" class="checkbox first" checked /><span>关联子</span><br/>
+                    取消勾选时：<input type="checkbox" id="pn" class="checkbox first" checked /><span>关联父</span>
+                    <input type="checkbox" id="sn" class="checkbox first" checked /><span>关联子</span><br/>
+                    <ul id="code" class="log" style="height:20px;"></ul></p>
+                </li>
+            </ul>
+            <!-- /.aside -->
+            <section id="content">
+                <!-- datepicker -->
+                <script type="text/javascript" src="static/admin/js/map.index.js"></script>
+                <section class="vbox">
+
+
+                    <section class="scrollable wrapper">
+                        <div style="width:99%;height:100%;border:#ccc solid 1px; margin:15px:5px:5px:5px"  id="dituContent"></div>
+
+                        <input id="marker" name="marker" style="display:none" value="{title:~设备名：泗县高速南口~,content:~时间：，顺序：0~,point:~117.878751|33.537357~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：第三方设备~,content:~时间：，顺序：1~,point:~0000000|0000000~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：丰禾路1W~,content:~时间：，顺序：2~,point:~108.928276|34.286635~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：北关W~,content:~时间：，顺序：3~,point:~108.953718|34.288555~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：土门2W~,content:~时间：，顺序：4~,point:~108.888315|34.269915~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：土门1W~,content:~时间：，顺序：5~,point:~108.879608|34.265135~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：枣园1W~,content:~时间：，顺序：6~,point:~108.860654|34.289767~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：枣园2W~,content:~时间：，顺序：7~,point:~108.875732|34.274819~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：洒金桥W~,content:~时间：，顺序：8~,point:~108.937914|34.275553~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：将军大道与向阳路交界W~,content:~时间：，顺序：9~,point:~116.210417|33.478377~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：丰禾路2W~,content:~时间：，顺序：10~,point:~108.898196|34.288502~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：自强西路W~,content:~时间：，顺序：11~,point:~108.932911|34.286176~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：欣集古镇W~,content:~时间：，顺序：12~,point:~108.924245|34.275587~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：十九里高速TD~,content:~时间：，顺序：13~,point:~115.858155|33.776309~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：枣园2-移动G~,content:~时间：，顺序：14~,point:~108.875732|34.274819~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：亳州火车站_gsm移动~,content:~时间：，顺序：15~,point:~115.79195|33.84901~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：枣园2-联通G~,content:~时间：，顺序：16~,point:~108.875732|34.274819~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：公园十字口~,content:~时间：，顺序：17~,point:~117.554195|33.572419~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：南大桥~,content:~时间：，顺序：18~,point:~117.541825|33.532844~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：虞姬三岔路口~,content:~时间：，顺序：19~,point:~117.589219|33.543411~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速口~,content:~时间：，顺序：20~,point:~117.562768|33.606068~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：大地桥W~,content:~时间：，顺序：21~,point:~116.779154|33.893739~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：亚珠石油加油站TD~,content:~时间：，顺序：22~,point:~115.762544|33.883333~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：将军大道与向阳路交界TD~,content:~时间：，顺序：23~,point:~116.210417|33.478377~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：乐行大道与S202线交界W~,content:~时间：，顺序：24~,point:~116.196305|33.497964~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：乐行大道与S202线交界TD~,content:~时间：，顺序：25~,point:~116.196305|33.497964~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：老子牛TD~,content:~时间：，顺序：26~,point:~116.199936|33.512164~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：老子牛W~,content:~时间：，顺序：27~,point:~116.199936|33.512164~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：淮中大道TD~,content:~时间：，顺序：28~,point:~116.233518|33.499857~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：淮中大道W~,content:~时间：，顺序：29~,point:~116.233518|33.499857~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：S202与东环路交界W~,content:~时间：，顺序：30~,point:~116.228904|33.545374~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：S202与东环路交界TD~,content:~时间：，顺序：31~,point:~116.228904|33.545374~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：308与环城南路交界W~,content:~时间：，顺序：32~,point:~116.197647|33.478377~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：308与环城南路交界TD~,content:~时间：，顺序：33~,point:~116.197647|33.478377~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：双桥TD~,content:~时间：，顺序：34~,point:~116.230096|33.497964~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：双桥W~,content:~时间：，顺序：35~,point:~116.230096|33.497964~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：利辛县高速出口TD~,content:~时间：，顺序：36~,point:~116.201806|33.512164~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：利辛县高速出口W~,content:~时间：，顺序：37~,point:~116.201806|33.512164~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：潘楼W~,content:~时间：，顺序：38~,point:~116.170983|33.499857~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：潘楼TD~,content:~时间：，顺序：39~,point:~116.170983|33.499857~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：李楼W~,content:~时间：，顺序：40~,point:~116.174043|33.545374~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：李楼TD~,content:~时间：，顺序：41~,point:~116.174043|33.545374~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：砀山老收费站~,content:~时间：，顺序：42~,point:~116.422522|34.530689~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：亳州火车站_gsm联通~,content:~时间：，顺序：43~,point:~115.79196|33.84901~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：凌津渡_gsm移动~,content:~时间：，顺序：44~,point:~115.77526|33.88589~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：凌津渡_gsm联通~,content:~时间：，顺序：45~,point:~115.77526|33.88589~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：城东地下道口~,content:~时间：，顺序：46~,point:~116.975784|34.186361~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：凤山宾馆~,content:~时间：，顺序：47~,point:~116.925497|34.194591~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：T6666~,content:~时间：，顺序：48~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：9009~,content:~时间：，顺序：49~,point:~1|1~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：9029~,content:~时间：，顺序：50~,point:~1|1~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：T1236666~,content:~时间：，顺序：51~,point:~1|1~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：新区高架桥西~,content:~时间：，顺序：52~,point:~116.979483|34.197832~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：test01~,content:~时间：，顺序：53~,point:~111|111~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：南外环十字口~,content:~时间：，顺序：54~,point:~116.955497|34.145324~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：W6116~,content:~时间：，顺序：55~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：王企鹅企鹅我去1~,content:~时间：，顺序：56~,point:~23213123123123|安徽随队~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：火车站~,content:~时间：，顺序：57~,point:~116.337698|34.423515~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：府南大门市政TD~,content:~时间：，顺序：58~,point:~115.785294|33.850191~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：test2~,content:~时间：，顺序：59~,point:~3121312|23123~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：六安高速口~,content:~时间：，顺序：60~,point:~116.551881|31.864194~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：振兴城十字口~,content:~时间：，顺序：61~,point:~116.487796|31.730371~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：六安高速口T~,content:~时间：，顺序：62~,point:~116.551881|31.864194~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：振兴城十字口T~,content:~时间：，顺序：63~,point:~116.487796|31.730371~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：霍邱县光明大道W~,content:~时间：，顺序：64~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：霍邱县光明大道TD~,content:~时间：，顺序：65~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：泗县汴河桥南~,content:~时间：，顺序：66~,point:~117.894952|33.454388~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：魏武广场TD~,content:~时间：，顺序：67~,point:~115.793491|33.863872~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：灵津渡大桥W~,content:~时间：，顺序：68~,point:~115.785327|33.896297~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：灵津渡大桥TD~,content:~时间：，顺序：69~,point:~115.785327|33.896297~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：城西外环路口_gsm移动~,content:~时间：，顺序：70~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：城西外环路口_gsm联通~,content:~时间：，顺序：71~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：草庙镇_gsm移动~,content:~时间：，顺序：72~,point:~117.97091|33.49263~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：草庙镇_gsm联通~,content:~时间：，顺序：73~,point:~117.97091|33.49263~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：汕头镇_gsm移动~,content:~时间：，顺序：74~,point:~118.10719|33.75121~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：汕头镇_gsm联通~,content:~时间：，顺序：75~,point:~118.10718|33.75121~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大庄镇_gsm移动~,content:~时间：，顺序：76~,point:~117.87084|33.70903~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大庄镇_gsm联通~,content:~时间：，顺序：77~,point:~117.87087|33.70906~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速南十字路口_gsm移动~,content:~时间：，顺序：78~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速南十字路口_gsm联通~,content:~时间：，顺序：79~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：汴河桥_gsm移动~,content:~时间：，顺序：80~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：汴河桥_gsm联通~,content:~时间：，顺序：81~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：韦集乡_gsm移动~,content:~时间：，顺序：82~,point:~117.59789|33.34842~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：韦集乡_gsm联通~,content:~时间：，顺序：83~,point:~117.59789|33.34842~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：尹集镇_gsm移动~,content:~时间：，顺序：84~,point:~117.45692|33.76824~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：尹集镇_gsm联通~,content:~时间：，顺序：85~,point:~117.45704|33.76832~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大路乡十字路口_gsm移动~,content:~时间：，顺序：86~,point:~117.60691|33.78921~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大路乡十字路口_gsm联通~,content:~时间：，顺序：87~,point:~117.6069|33.78922~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：公园十字路口_gsm移动~,content:~时间：，顺序：88~,point:~117.54195|33.56919~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：公园十字路口_gsm联通~,content:~时间：，顺序：89~,point:~117.54195|33.56919~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：虞姬三岔路口_gsm移动~,content:~时间：，顺序：90~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：虞姬三岔路口_gsm联通~,content:~时间：，顺序：91~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：南大桥_gsm移动~,content:~时间：，顺序：92~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：南大桥_gsm联通~,content:~时间：，顺序：93~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速口_gsm移动~,content:~时间：，顺序：94~,point:~117.55191|33.60113~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速口_gsm联通~,content:~时间：，顺序：95~,point:~117.55192|33.60111~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：西二铺_gsm移动~,content:~时间：，顺序：96~,point:~116.93597|33.6387~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：西二铺_gsm联通~,content:~时间：，顺序：97~,point:~116.93597|33.6387~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速路宿州口_gsm移动~,content:~时间：，顺序：98~,point:~116.94306|33.61441~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速路宿州口_gsm联通~,content:~时间：，顺序：99~,point:~116.94306|33.61441~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：北十里铺_gsm移动~,content:~时间：，顺序：100~,point:~116.97336|33.69842~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：北十里铺_gsm联通~,content:~时间：，顺序：101~,point:~116.97336|33.69842~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：二徐路_gsm移动~,content:~时间：，顺序：102~,point:~117.08055|33.66303~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：二徐路_gsm联通~,content:~时间：，顺序：103~,point:~117.08055|33.66303~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：南外环_gsm移动~,content:~时间：，顺序：104~,point:~116.99921|33.56664~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：南外环_gsm联通~,content:~时间：，顺序：105~,point:~116.99921|33.56664~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：青龙集_gsm移动~,content:~时间：，顺序：106~,point:~116.64409|34.0393~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：青龙集_gsm联通~,content:~时间：，顺序：107~,point:~116.64405|34.03927~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：新区高架桥西_gsm移动~,content:~时间：，顺序：108~,point:~116.96717|34.19279~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：新区高架桥西_gsm联通~,content:~时间：，顺序：109~,point:~116.96717|34.19279~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：黄口镇_gsm移动~,content:~时间：，顺序：110~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：黄口镇_gsm联通~,content:~时间：，顺序：111~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：张庄寨_gsm移动~,content:~时间：，顺序：112~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：张庄寨_gsm联通~,content:~时间：，顺序：113~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：城东地下道口_gsm移动~,content:~时间：，顺序：114~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：城东地下道口_gsm联通~,content:~时间：，顺序：115~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：凤山宾馆_gsm移动~,content:~时间：，顺序：116~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：凤山宾馆_gsm联通~,content:~时间：，顺序：117~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：梨香宾馆~,content:~时间：，顺序：118~,point:~116.359407|34.424153~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：萧县南外环_gsm移动~,content:~时间：，顺序：119~,point:~116.94388|34.14672~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：萧县南外环_gsm联通~,content:~时间：，顺序：120~,point:~116.94388|34.14672~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：国道310圣泉路_gsm移动~,content:~时间：，顺序：121~,point:~116.95534|34.29487~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：国道310圣泉路_gsm联通~,content:~时间：，顺序：122~,point:~116.95534|34.29487~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：丁庄路口_gsm移动~,content:~时间：，顺序：123~,point:~116.84333|34.20838~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：丁庄路口_gsm联通~,content:~时间：，顺序：124~,point:~116.84338|34.20841~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：老收费站_gsm移动~,content:~时间：，顺序：125~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：老收费站_gsm联通~,content:~时间：，顺序：126~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：公安局东路口_gsm移动~,content:~时间：，顺序：127~,point:~116.37481|34.44025~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：公安局东路口_gsm联通~,content:~时间：，顺序：128~,point:~116.37481|34.44025~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：梨乡宾馆_gsm移动~,content:~时间：，顺序：129~,point:~116.34478|34.41946~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：梨乡宾馆_gsm联通~,content:~时间：，顺序：130~,point:~116.34478|34.41946~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：火车站_gam移动~,content:~时间：，顺序：131~,point:~116.32512|34.41896~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：火车站_gam联通~,content:~时间：，顺序：132~,point:~116.32506|34.4189~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：马良集_gsm移动~,content:~时间：，顺序：133~,point:~116.28723|34.59139~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：马良集_gsm联通~,content:~时间：，顺序：134~,point:~116.28725|34.5914~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：周寨派出所_gsm移动~,content:~时间：，顺序：135~,point:~116.45855|34.5658~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：周寨派出所_gsm联通~,content:~时间：，顺序：136~,point:~116.45855|34.5658~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：九里高速_gsm移动~,content:~时间：，顺序：137~,point:~115.84409|33.7756~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：九里高速_gsm联通~,content:~时间：，顺序：138~,point:~115.84409|33.7756~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：魏武广场_gsm移动~,content:~时间：，顺序：139~,point:~115.78134|33.85892~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：魏武广场_gsm联通~,content:~时间：，顺序：140~,point:~115.78134|33.85892~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：市政府_gsm移动~,content:~时间：，顺序：141~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：市政府_gsm联通~,content:~时间：，顺序：142~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：亚洲石油城_gsm移动~,content:~时间：，顺序：143~,point:~115.75003|33.87849~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：亚洲石油城_gsm联通~,content:~时间：，顺序：144~,point:~115.74598|33.87948~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大地桥_gsm移动~,content:~时间：，顺序：145~,point:~115.76702|33.88704~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大地桥_gsm联通~,content:~时间：，顺序：146~,point:~115.76702|33.88704~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大洋桥_gsm移动~,content:~时间：，顺序：147~,point:~115.78475|33.88473~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大洋桥_gsm联通~,content:~时间：，顺序：148~,point:~115.78475|33.88473~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：双桥_gsm移动~,content:~时间：，顺序：149~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：双桥_gsm联通~,content:~时间：，顺序：150~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：公路超限检测站_gsm移动~,content:~时间：，顺序：151~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：公路超限检测站_gsm联通~,content:~时间：，顺序：152~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：潘楼_gsm移动~,content:~时间：，顺序：153~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：潘楼_gsm联通~,content:~时间：，顺序：154~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速东口_gsm移动~,content:~时间：，顺序：155~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速东口_gsm联通~,content:~时间：，顺序：156~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：五里高速_gsm移动~,content:~时间：，顺序：157~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：五里高速_gsm联通~,content:~时间：，顺序：158~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：将军大道_gsm移动~,content:~时间：，顺序：159~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：将军大道_gsm联通~,content:~时间：，顺序：160~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：气象局_gsm移动~,content:~时间：，顺序：161~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：气象局_gsm联通~,content:~时间：，顺序：162~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：老子牛_gsm移动~,content:~时间：，顺序：163~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：老子牛_gsm联通~,content:~时间：，顺序：164~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：淮中大道_gsm移动~,content:~时间：，顺序：165~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：淮中大道_gsm联通~,content:~时间：，顺序：166~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：202省道与东环路交界_gsm移动~,content:~时间：，顺序：167~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：202省道与东环路交界_gsm联通~,content:~时间：，顺序：168~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城桥_gsm移动~,content:~时间：，顺序：169~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大地桥TD~,content:~时间：，顺序：170~,point:~116.779154|33.893739~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大洋桥W~,content:~时间：，顺序：171~,point:~115.794865|33.886945~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：大洋桥TD~,content:~时间：，顺序：172~,point:~115.794865|33.886945~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：蒙城桥_gsm联通~,content:~时间：，顺序：173~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城高速口_gsm移动~,content:~时间：，顺序：174~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城高速口_gsm联通~,content:~时间：，顺序：175~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：五里高大桥_gsm移动~,content:~时间：，顺序：176~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：五里高大桥_gsm联通~,content:~时间：，顺序：177~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城县政府_gsm移动~,content:~时间：，顺序：178~,point:~116.55947|33.2677~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城县政府_gsm联通~,content:~时间：，顺序：179~,point:~116.55945|33.26771~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙蚌路口_gsm移动~,content:~时间：，顺序：180~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙蚌路口_gsm联通~,content:~时间：，顺序：181~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速南口cdma~,content:~时间：，顺序：182~,point:~117.8669|33.53299~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：汴河桥cdma~,content:~时间：，顺序：183~,point:~117.88377|33.45166~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：虞姬三岔路口cdma~,content:~时间：，顺序：184~,point:~117.57793|33.53865~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：南大桥cdma~,content:~时间：，顺序：185~,point:~117.52907|33.52834~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：城东地下道口cdma~,content:~时间：，顺序：186~,point:~116.96018|34.18306~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：风山宾馆cdma~,content:~时间：，顺序：187~,point:~116.91365|34.18842~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：老收费站cdma~,content:~时间：，顺序：188~,point:~116.40995|34.41745~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：梨乡宾馆cdma~,content:~时间：，顺序：189~,point:~116.34498|34.41619~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：火车站cdma~,content:~时间：，顺序：190~,point:~115.79195|33.84892~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：亚洲石油城cdma~,content:~时间：，顺序：191~,point:~115.75002|33.87853~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：魏武广场cdma~,content:~时间：，顺序：192~,point:~115.78132|33.85896~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大地桥cdma~,content:~时间：，顺序：193~,point:~115.76707|33.88704~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：灵津渡cdma~,content:~时间：，顺序：194~,point:~115.77527|33.88594~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：大洋桥cdma~,content:~时间：，顺序：195~,point:~115.78477|33.88473~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：市政府cdma~,content:~时间：，顺序：196~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：十九里高速cdma~,content:~时间：，顺序：197~,point:~115.8441|33.7756~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：双桥cdma~,content:~时间：，顺序：198~,point:~116.16031|33.11583~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：公路超限检测站cdma~,content:~时间：，顺序：199~,point:~116.24034|33.10872~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：潘楼cdma~,content:~时间：，顺序：200~,point:~116.14467|33.18141~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：高速东口cdma~,content:~时间：，顺序：201~,point:~116.32197|33.19042~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：五里高速cdma~,content:~时间：，顺序：202~,point:~116.1897|33.1898~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：将军大道cdma~,content:~时间：，顺序：203~,point:~116.19818|33.47468~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：气象局cdma~,content:~时间：，顺序：204~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：老子牛cdma~,content:~时间：，顺序：205~,point:~116.18741|33.50868~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：淮中大道cdma~,content:~时间：，顺序：206~,point:~116.222|33.49548~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：202省道与东环路交界cdma~,content:~时间：，顺序：207~,point:~116.22605|33.54097~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城桥cdma~,content:~时间：，顺序：208~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城高速口cdma~,content:~时间：，顺序：209~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：五里高大桥cdma~,content:~时间：，顺序：210~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城县政府cdma~,content:~时间：，顺序：211~,point:~116.55943|33.26767~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙蚌路口cdma~,content:~时间：，顺序：212~,point:~0.0|0.0~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：test_TD~,content:~时间：，顺序：213~,point:~22|22~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：洒金桥-移动G~,content:~时间：，顺序：214~,point:~108.937914|34.275553~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：洒金桥-联通G~,content:~时间：，顺序：215~,point:~108.937914|34.275553~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：test_lte~,content:~时间：，顺序：216~,point:~116|34~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：阜阳高速三塔~,content:~时间：，顺序：217~,point:~115.696811|32.789296~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：亚珠石油加油站W~,content:~时间：，顺序：218~,point:~115.762544|33.883333~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：魏武广场W~,content:~时间：，顺序：219~,point:~115.793491|33.863872~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：市政府南大门W~,content:~时间：，顺序：220~,point:~115.785294|33.850191~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：十九里高速W~,content:~时间：，顺序：221~,point:~115.858155|33.776309~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：火车站广场W~,content:~时间：，顺序：222~,point:~115.803597|33.853683~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：火车站广场TD~,content:~时间：，顺序：223~,point:~115.803597|33.853683~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：阜阳南四环阜王路~,content:~时间：，顺序：224~,point:~115.799264|32.863916~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：阜阳十二里庙~,content:~时间：，顺序：225~,point:~115.763111|32.861669~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：阜阳南高速~,content:~时间：，顺序：226~,point:~115.920502|32.794451~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：阜阳喜乐老年公寓~,content:~时间：，顺序：227~,point:~115.756619|32.994883~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：阜阳北京中路泉河桥~,content:~时间：，顺序：228~,point:~115.850929|32.915537~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：白庙卡口~,content:~时间：，顺序：229~,point:~115.794635|32.95775~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：阜阳阜临路七鱼河新党校~,content:~时间：，顺序：230~,point:~115.755439|32.906922~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：阜阳泉河桥~,content:~时间：，顺序：231~,point:~115.802481|32.923978~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：wcdmatest~,content:~时间：，顺序：232~,point:~11111|1111~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：西关-移动G~,content:~时间：，顺序：233~,point:~108.927816|34.256561~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：西关-联通G~,content:~时间：，顺序：234~,point:~108.927816|34.256561~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：城西外环路口~,content:~时间：，顺序：235~,point:~117.877527|33.477378~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：w9008~,content:~时间：，顺序：236~,point:~1|1~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：w123456~,content:~时间：，顺序：237~,point:~1|1~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：9015~,content:~时间：，顺序：238~,point:~1|1~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：非法的设备ID-Default~,content:~时间：，顺序：239~,point:~1.22|1~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城涡河三桥T~,content:~时间：，顺序：240~,point:~116.574781|33.261999~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：蒙城涡河三桥W~,content:~时间：，顺序：241~,point:~116.574781|33.261999~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：蒙城县人民政府T~,content:~时间：，顺序：242~,point:~116.569933|33.271996~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙城县人民政府W~,content:~时间：，顺序：243~,point:~116.569933|33.271996~,isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}-,{title:~设备名：蒙蚌路东T~,content:~时间：，顺序：244~,point:~116.562622|33.254709~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：蒙蚌路东W~,content:~时间：，顺序：245~,point:~116.562622|33.254709~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：蒙城高速出口T~,content:~时间：，顺序：246~,point:~116.561707|33.185637~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：蒙城高速出口W~,content:~时间：，顺序：247~,point:~116.561707|33.185637~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：五里高大桥T~,content:~时间：，顺序：248~,point:~116.527289|33.269365~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,{title:~设备名：五里高大桥W~,content:~时间：，顺序：249~,point:~116.527289|33.269365~,isOpen:0,icon:{w:23,h:25,l:69,t:21,x:9,lb:12}}-,"></input>
+
+                        <script type="text/javascript" src="static/admin/js/map.map.js"></script>
+
+                    </section>
+                </section>
+                <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+            </section>
+            <aside class="bg-light lter b-l aside-md hide" id="notes">
+                <div class="wrapper">Notification</div>
+            </aside>
+        </section>
+    </section>
+    <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+</section>
+<!-- /.vbox -->
+
+</body>
+</html>
