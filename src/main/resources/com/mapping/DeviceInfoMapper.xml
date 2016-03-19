@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.db.DeviceInfoMapper">
+
+    <resultMap id="Device" type="com.bean.DeviceModel">
+        <id property="deviceId" column="deviceId"/>
+    </resultMap>
+
+    <select id="getAllDevices" resultMap="Device">
+    SELECT deviceId, name, rat, hardwareVer, softwareVer,
+      setupTime, ipaddr, deviceIp, serviceIp, servicePort, HDU,
+      CPU, PaT, softwareVersion, hardwareVersion, longitude, latitude, btsstatus,
+      ampstatus, interstatus, ctime, isValid, stnid, locid, mtime, sendmode,
+      periodvalue,totalnumber, code
+    FROM station_info
+    </select>
+</mapper>

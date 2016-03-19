@@ -10,7 +10,6 @@
         <result property="name" column="name"/>
         <result property="uri" column="url"/>
 
-        <!--文章集合 -->
         <collection property="subMenuItem" ofType="com.bean.MenuItem">
             <id property="id" column="sub_id"/>
             <result property="name" column="sub_name"/>
