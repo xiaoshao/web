@@ -5,4 +5,5 @@ mvc.ipr
 mvc.iws
 gradle/
 out
+logs
 
