@@ -6,7 +6,14 @@
 <mapper namespace="com.db.BlacklistMapper">
 
     <resultMap id="Blacklist" type="com.bean.BlacklistModel">
-        <id property="deviceId" column="deviceId"/>
+        <id property="id" column="id"/>
+        <result property="imsi" column="imsi"/>
+        <result property="imei" column="imei"/>
+        <result property="ctime" column="ctime"/>
+        <result property="mtime" column="mtime"/>
+        <result property="name" column="name"/>
+        <result property="esn" column="esn"/>
+        <result property="smsid" column="smsid"/>
     </resultMap>
 
     <select id="getBlacklist" resultMap="Blacklist">
