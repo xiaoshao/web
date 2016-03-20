@@ -12,10 +12,10 @@
 	http://mybatis.org/schema/mybatis-spring.xsd">
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/docker_mysql" />
-        <property name="username" value="test"/>
-        <property name="password" value="mypqssowrd"/>
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
         <property name="cacheState" value="true"/>
     </bean>
 
