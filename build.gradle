@@ -41,7 +41,8 @@ dependencies {
             'org.springframework:spring-jdbc:4.2.5.RELEASE',
             'mysql:mysql-connector-java:5.1.38',
             'javax.mail:mail:1.4.7',
-            'log4j:log4j:1.2.17'
+            'log4j:log4j:1.2.17',
+            'com.github.spullara.mustache.java:compiler:0.9.1'
 
     testCompile "junit:junit:4.11",'org.mockito:mockito-all:1.10.19'
 
