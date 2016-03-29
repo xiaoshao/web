@@ -12,9 +12,7 @@ public class BlacklistController {
     BlacklistService blacklistService;
 
     @RequestMapping(value = "/blacklist")
-//    @ResponseBody
     public String getBlacklist() {
-        return "test";
-//        return blacklistService.getBlacklist();
+        return "main";
     }
 }

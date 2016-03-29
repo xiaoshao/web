@@ -8,10 +8,11 @@ import java.util.Locale;
 /**
  * Created by zwshao on 3/24/16.
  */
-public class CustomerViewResolver implements ViewResolver{
+public class CustomerViewResolver extends AbstractViewResolver implements ViewResolver{
 
     @Override
     public View resolveViewName(String viewName, Locale locale) throws Exception {
-        return new MyView();
+
+        return new MyView(getTemplatePath(viewName));
     }
 }

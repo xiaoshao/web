@@ -20,9 +20,11 @@ public class DeviceController {
     @RequestMapping(value = "/deviceInfo")
     @ResponseBody
     public List<DeviceModel> getDevicesInfo() {
-
-        logger.error("this is error");
-        logger.info("this is info");
         return deviceService.getDevicesInfo();
+    }
+
+    @RequestMapping(value = "/deviceIndex")
+    public String index(){
+        return "deviceManagementTemplate";
     }
 }

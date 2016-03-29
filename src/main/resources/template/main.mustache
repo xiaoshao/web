@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <!-- META-->
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312"/>
+    <meta name="description" content="ilife"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- GLOBAL ASSETS -->
+    <link rel="stylesheet" href="static/scripts/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/animate.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/apps.css" type="text/css"/>
+    <link rel="stylesheet" href="static/scripts/fuelux/fuelux.css" type="text/css"/>
+    <link rel="stylesheet" href="static/panel/css/reset.css" type="text/css"/>
+
+    <!--[if lt IE 9]>
+    <script src="static/scripts/ie/html5shiv.js" cache="false"></script>
+    <script src="static/scripts/ie/respond.min.js" cache="false"></script>
+    <script src="static/scripts/ie/excanvas.js" cache="false"></script>
+    <![endif]-->
+    <script src="static/scripts/jquery/1.11.0/jquery.min.js"></script>
+    <script src="static/scripts/jquery-form/3.03/jquery.form.js"></script>
+    <script src="static/scripts/jquery-pjax/jquery.pjax.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="static/scripts/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+    <!-- App -->
+    <script src="static/scripts/app.js"></script>
+    <script src="static/scripts/app.plugin.js"></script>
+    <script src="static/scripts/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="static/scripts/fuelux/fuelux.js" cache="false"></script>
+    <script src="static/panel/js/common.js"></script>
+
+    <!-- GLOBAL ASSETS END@-->
+    <link rel="stylesheet" href="static/scripts/jquery-ztree/3.5.15/css/zTreeStyle.css" type="text/css"/>
+    <script src="static/scripts/jquery-ztree/3.5.15/js/jquery.ztree.core-3.5.js"></script>
+    <script type="text/javascript" src="static/scripts/jquery-ztree/3.5.15/js/jquery.ztree.excheck-3.5.js"></script>
+    <link rel="stylesheet" href="static/admin/css/index.index.css" type="text/css"/>
+
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>-->
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=DF9ecd1115b0af58dc4d439cf8bc2a9a&services=true"></script>
+
+    <!-- USER DEFINED ASSETS -->
+    <!-- USER DEFINED ASSETS END@-->
+    <title>电子围栏管理系统</title>
+</head>
+<body>
+<section class="vbox">
+    {{> header}}
+    <section>
+        <section class="hbox stretch">
+            {{> menu}}
+            {{> deviceTree}}
+            {{> mapper}}
+        </section>
+    </section>
+</section>
+</body>
+</html>
