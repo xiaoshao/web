@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-public class BlacklistController {
+public class BlackListController {
 
     @Autowired
     BlacklistService blacklistService;
