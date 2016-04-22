@@ -15,5 +15,5 @@ public interface UserMapper {
         @Select("SELECT * FROM user WHERE name = #{name} and password = #{password}")
         List<User> getUser(@Param("name") String name, @Param("password") String password);
 
-        boolean createUser(User user);
+        User createUser(User user);
 }

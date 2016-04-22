@@ -7,5 +7,7 @@
     <insert id="insertUser" parameterType="com.bean.User" useGeneratedKeys="true" keyProperty="user.id" keyColumn="id">
         insert into user (name, password)
         values (#{username}, #{password})
+
+        select id, name from USER where name=#{username}
     </insert>
 </mapper>
