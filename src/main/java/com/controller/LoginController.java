@@ -19,21 +19,18 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private LoginService login;
+    private LoginService loginService;
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    @ResponseBody
-    public String hello() {
-        return "hello world";
+    @Autowired
+    public LoginController(LoginService loginService){
+        this.loginService = loginService;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public User login(@RequestBody final User user, HttpServletResponse response) throws Exception{
         response.addCookie(new Cookie("test", "1234567"));
-        login.login(user);
-        return user;
+        return this.loginService.login(user);
     }
 
     @RequestMapping(value = "/test", method= RequestMethod.GET)

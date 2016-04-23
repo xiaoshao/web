@@ -15,14 +15,13 @@ public class LoginService {
     public UserMapper userMapper;
 
     public User login(User user) throws UserNotFoundException{
+
         List<User> users = userMapper.getUser(user.getName(), user.getPassword());
 
         if(users.size() == 0){
             throw new UserNotFoundException("User name or password error");
         }
-        System.out.println("**************");
-        System.out.println(users.size());
-        System.out.println("**************");
+
         return users.get(0);
     }
 }
