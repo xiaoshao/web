@@ -1,8 +1,7 @@
 package com.controller;
 
-import com.bean.User;
-import com.exception.UserNotFoundException;
-import com.service.LoginService;
+import com.bean.Blacklist;
+import com.service.BlacklistService;
 import common.TestUtil;
 import org.hamcrest.core.IsEqual;
 import org.junit.Before;
@@ -16,46 +15,55 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * Created by zwshao on 4/21/16.
+ * Created by zwshao on 4/24/16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:config/application-context.xml",
         "classpath:config/error-servlet.xml", "classpath:config/servlet.xml",
         "classpath:config/db-config.xml"})
-public class UserManagementControllerTest {
+public class BlackListControllerTest {
 
     MockMvc mockMvc;
 
-    @Mock
-    private LoginService loginService;
-
     @InjectMocks
-    private LoginController loginController;
+    BlackListController blackListController;
+
+    @Mock
+    BlacklistService blacklistService;
 
     @Before
-    public void setup() throws UserNotFoundException {
+    public void setup() {
         MockitoAnnotations.initMocks(this);
 
-        mockMvc = MockMvcBuilders.standaloneSetup(loginController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(blackListController).build();
     }
 
     @Test
-    public void shouldCallTheLoginServiceToCheckUser() throws Exception {
+    public void shouldAddTheBlacklist() throws Exception {
+        Blacklist blackList = new Blacklist();
+        blackList.setId(0);
+        blackList.setImsi("18192729090");
+        blackList.setName("xiaoshao");
 
-        User loginAccount = new User("test", "123456");
-        when(loginService.login(loginAccount)).thenReturn(new User("test", null));
+        when(blacklistService.add(any())).thenReturn(blackList);
 
-        mockMvc.perform(post("/login")
-                .content(TestUtil.convertObjectToJsonBytes(loginAccount))
+        mockMvc.perform(post("/addBlacklist")
+                .content(TestUtil.convertObjectToJsonBytes(blackList))
                 .contentType(TestUtil.APPLICATION_JSON_UTF8))
-                .andExpect(status().is(200));
+                .andExpect(status().is(200))
+                .andExpect(jsonPath("$.name", is("xiaoshao")));
 
-        verify(loginService, times(1)).login(argThat(new IsEqual<User>(new User("", ""))));
+        verify(blacklistService, times(1)).add(argThat(new IsEqual<Blacklist>(blackList)));
     }
+
 
 }

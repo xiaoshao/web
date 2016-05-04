@@ -1,11 +1,13 @@
 package com.db;
 
-import com.bean.BlacklistModel;
+import com.bean.Blacklist;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public interface BlacklistMapper {
-    List<BlacklistModel> getBlacklist();
+    List<Blacklist> getBlacklist();
+
+    Blacklist addBlackList(Blacklist blacklist);
 }

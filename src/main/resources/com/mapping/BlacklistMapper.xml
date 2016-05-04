@@ -5,19 +5,37 @@
 
 <mapper namespace="com.db.BlacklistMapper">
 
-    <resultMap id="Blacklist" type="com.bean.BlacklistModel">
+    <resultMap id="Blacklist" type="com.bean.Blacklist">
         <id property="id" column="id"/>
         <result property="imsi" column="imsi"/>
-        <result property="imei" column="imei"/>
-        <result property="ctime" column="ctime"/>
-        <result property="mtime" column="mtime"/>
         <result property="name" column="name"/>
-        <result property="esn" column="esn"/>
-        <result property="smsid" column="smsid"/>
+        <collection property="monitors" ofType="com.bean.Monitor">
+            <id property="id" column="monitor_id"></id>
+            <result property="name" column="monitor_name"></result>
+        </collection>
     </resultMap>
 
     <select id="getBlacklist" resultMap="Blacklist">
-        SELECT *
-        FROM blacklist_info
+        SELECT blacklist.id as id,
+                blacklist.name as name,
+                blacklist.imsi as imsi,
+                  monitor.id as monitor_id,
+                  monitor.name as monitor_name
+        FROM blacklist
+        INNER JOIN blacklist_monitor
+         ON blacklist.id = blacklist_monitor.blacklist_id
+        INNER JOIN monitor
+         ON blacklist_monitor.monitor_id = monitor.id
     </select>
+
+    <insert id="addBlackList" parameterType="com.bean.Blacklist">
+        insert into blacklist(
+          name,
+          imsi
+        )
+        VALUES (
+          #{name},
+          #{imsi}
+        )
+    </insert>
 </mapper>
