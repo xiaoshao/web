@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -64,4 +65,8 @@ public class BlackListControllerTest {
     }
 
 
+    @Test
+    public void shouldGetDBName(){
+        assertThat(System.getenv("db_name1"), is("test"));
+    }
 }
