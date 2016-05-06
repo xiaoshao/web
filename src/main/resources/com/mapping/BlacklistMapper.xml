@@ -5,7 +5,7 @@
 
 <mapper namespace="com.db.BlacklistMapper">
 
-    <resultMap id="Blacklist" type="com.bean.Blacklist">
+    <resultMap id="blacklists" type="com.bean.Blacklist">
         <id property="id" column="id"/>
         <result property="imsi" column="imsi"/>
         <result property="name" column="name"/>
@@ -15,7 +15,7 @@
         </collection>
     </resultMap>
 
-    <select id="getBlacklist" resultMap="Blacklist">
+    <select id="getBlacklist" resultMap="blacklists">
         SELECT blacklist.id as id,
                 blacklist.name as name,
                 blacklist.imsi as imsi,

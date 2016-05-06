@@ -4,7 +4,6 @@ import com.bean.User;
 import com.exception.UserNotFoundException;
 import com.service.LoginService;
 import common.TestUtil;
-import org.hamcrest.core.IsEqual;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.util.NestedServletException;
 
-import static org.mockito.Matchers.argThat;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.cookie;
@@ -59,7 +57,7 @@ public class LoginControllerTest {
                 .andExpect(status().is(200))
                 .andExpect(cookie().exists("test"));
 
-        verify(loginService, times(1)).login(argThat(new IsEqual<User>(loginAccount)));
+        verify(loginService, times(1)).login(loginAccount);
     }
 
     @Test(expected = NestedServletException.class)

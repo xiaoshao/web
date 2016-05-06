@@ -1,0 +1,1 @@
+create table v2(id int PRIMARY KEY );
